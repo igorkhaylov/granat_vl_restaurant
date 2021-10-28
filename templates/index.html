@@ -1,0 +1,326 @@
+{% load static thumbnail %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Granat</title>
+    <link rel="icon" href="{% static 'images/Granat_logo 1.svg' %}"/>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}"/>
+    {#        <link href="animate.css" rel="stylesheet"/>#}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"/>
+</head>
+
+<body>
+{% thumbnail main.picture "x1440" crop="center" quality=70 as im %}
+    <header class="header" style="background-image: url('{{ im.url }}');">
+{% endthumbnail %}
+<div class="header_topbar wow fadeInDown">
+    <div class="header_topbar__logo">
+        <a href="#"><img width="100px" height="100px" src="{% static 'images/Granat_logo 1.svg' %}" alt="logo"/></a>
+    </div>
+    <nav class="header_nav">
+        <ul id="menu">
+            <li class="nav__link">
+                <a href="#aboutus">О нас</a>
+            </li>
+            <li class="nav__link">
+                <a href="#menuu">Меню</a>
+            </li>
+            <li class="nav__link">
+                <a href="#news">Новинки</a>
+            </li>
+            <li class="nav__link">
+                <a href="#contact">Обратная связь</a>
+            </li>
+            <li class="nav__link">
+                <a href="#footer">Контакты</a>
+            </li>
+            <li class="nav__link">
+                <a href="tel:+7 998 321-22-22">+7 998 321-22-22</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="header_content wow fadeInUp">
+    <div class="header_content__title">
+        <h1>
+            <span style="color: #ff1700">Салам</span>
+            добрые путники!</h1>
+    </div>
+    <div class="header_content__subtitle">
+        <h3>
+            С нами вам предоставляется возможность погрузиться в мир дальнего востока и отведать сказочные блюда!
+        </h3>
+    </div>
+    <button class="look_menu">
+        <h3>
+            <a href="#menuu">Просмотреть меню</a>
+        </h3>
+    </button>
+</div>
+</header>
+<div id="aboutus" class="about_us">
+    <div class="about_container">
+        <div class="about__title wow fadeInDown">
+            <h2>
+                <span style="color: #ff1700">О</span>
+                нас</h2>
+        </div>
+        <div class="about_content">
+
+            <div class="about_block_1">
+                <div class="about__item">
+                    <div class="about_item__title wow fadeInDOwn">
+                        <h3>Салам!</h3>
+                        <h4>
+                           {{ main.description1 }}
+                        </h4>
+                    </div>
+                </div>
+                <div class="about_item__image wow fadeInDown">
+                    {% thumbnail main.picture1 '570x350' crop='center' quality=70 as im %}
+                        <img height="270px" src="{{ im.url }}" alt="blydo"/>
+                    {% endthumbnail %}
+                </div>
+            </div>
+
+            <div class="about_block_2">
+                <div class="about__item">
+                    <div class="about_item__title right wow fadeInDown">
+                        <h3>Только представьте!</h3>
+                        <h4>
+                            {{ main.description2 }}
+
+                        </h4>
+                    </div>
+                </div>
+                <div class="about_item__image wow fadeInDown">
+                    {% thumbnail main.picture2 '570x350' crop='center' quality=70 as im %}
+                        <img height="270px" src="{{ im.url }}" alt="blydo"/>
+                    {% endthumbnail %}
+                </div>
+            </div>
+
+            <div class="about_block_1">
+                <div class="about__item">
+                    <div class="about_item__title wow fadeInDown">
+                        <h3>Отведайте!</h3>
+                        <h4>
+                            {{ main.description3 }}
+                        </h4>
+                    </div>
+                </div>
+                <div class="about_item__image wow fadeInDown">
+                    {% thumbnail main.picture3 '570x350' crop='center' quality=70 as im %}
+                        <img height="270px" src="{{ im.url }}" alt="blydo"/>
+                    {% endthumbnail %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="menuu" class="menu">
+    <div class="menu_container">
+        <div class="menu__title wow fadeInDown">
+            <h2>
+                <span style="color: #ff1700;">М</span>еню</h2>
+        </div>
+        <div class="menu__subtitle wow fadeInDown">
+            <h2>
+                <span style="color: #ff1700;">Перейдите</span>
+                в наше удобное приложение для заказа меню</h2>
+            <a href="https://play.google.com/store/apps/details?id=ru.quickresto.loyalty.granat">
+                <h3 style="margin-top: 30px;">Google apps</h3>
+            </a>
+            <a href="https://apps.apple.com/us/app/%D1%87%D0%B0%D0%B9%D1%85%D0%BE%D0%BD%D0%B0-%D0%B3%D1%80%D0%B0%D0%BD%D0%B0%D1%82/id1560818911">
+                <h3 style="margin-top: 30px;">Apple store</h3>
+            </a>
+        </div>
+        <div class="menu_topbar-nav">
+            <div class="topbar--item" data-filter="all"><a href="#">Всё</a></div>
+            <div class="topbar--item" data-filter="snacks"><a href="#">Закуски</a></div>
+            <div class="topbar--item" data-filter="salads"><a href="#">Салаты</a></div>
+            <div class="topbar--item" data-filter="soups"><a href="#">Супы</a></div>
+            <div class="topbar--item" data-filter="hotdishes"><a href="#">Горячие блюда</a></div>
+            <div class="topbar--item" data-filter="bakery"><a href="#">Выпечка</a></div>
+            <div class="topbar--item" data-filter="mangal"><a href="#">Мангал</a></div>
+            <div class="topbar--item" data-filter="sadj"><a href="#">Саджи</a></div>
+            <div class="topbar--item" data-filter="sweets"><a href="#">Десерты</a></div>
+            <div class="topbar--item" data-filter="bar"><a href="#">Бар</a></div>
+            <div class="topbar--item" data-filter="nastoi"><a href="#">Настойки</a></div>
+        </div>
+        <div class="menu__content">
+
+            {% for product in products %}
+
+            <div class="menu_content__item {{ product.categories }} wow fadeIn">
+                <div class="menu_item__image">
+                    {% thumbnail product.picture '407x224' crop='center' quality=70 as im %}
+                    <img src="{{ im.url }}" alt="menu_img">
+                    {% endthumbnail %}
+                </div>
+                <div class="menu_item__text">
+                    <div class="menu_item__title">
+                        <h2>{{ product.title }}</h2>
+                    </div>
+                    <div class="menu_item__price">
+                        <h3 style="color: gray;">{{ product.price }} руб</h3>
+                    </div>
+                    <div class="menu_item__subtext">{{ product.description }}</div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+<div id="news" class="news">
+    <div class="news_container">
+        <div class="news__title wow fadeInDown">
+            <h2>
+                <span style="color: #ff1700;">Н</span>овинки</h2>
+        </div>
+        <div class="news_content">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+
+                    {% for new_product in new_products %}
+
+
+                    <div class="swiper-slide">
+                        <div class="menu_content__ite fadeIn">
+                            <div class="menu_item__image">
+                                {% thumbnail new_product.picture "407x224" crop='center' quality=70 as im %}
+                                <img src="{{ im.url }}"
+                                     alt="menu_img">
+                                {% endthumbnail %}
+                            </div>
+                            <div class="menu_item__text">
+                                <div class="menu_item__title">
+                                    <h2>{{ new_product.title }}</h2>
+                                </div>
+                                <div class="menu_item__price">
+                                    <h3 style="color: gray;">{{ new_product.price }} руб</h3>
+                                </div>
+                                <div class="menu_item__subtext">
+                                    {{ new_product.description }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+                <div style="color: #ff1700;" class="swiper-button-next"></div>
+                <div style="color: #ff1700;" class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="contact" class="contact">
+    <div class="contact_container">
+        <div class="contact__title wow fadeInDown">
+            <h2>
+                <span style="color: #ff1700;">О</span>братная связь</h2>
+        </div>
+        <div class="contact__subtitle wow fadeInDown">
+            <h3>Свяжитесь с нами и узнайте ответы на все вопросы прямо сейчас или оставьте свои данные чтобы мы
+                связались с вами!</h3>
+        </div>
+        <div class="contact__content">
+            <form action="{% url 'send_message' %}" method="post" class="form">
+                {% csrf_token %}
+                <input name="name" type="text" class="form_input wow fadeInDown" placeholder="Введите имя" required>
+                <input name="phone" type="tel" class="form_input wow fadeInDown" placeholder="Введите номер" required>
+                <input name="email" type="email" class="form_input wow fadeInDown" placeholder="Введите email" required>
+                <button type="submit" class="connection_btn wow fadeInDown">
+                    <h3>Связаться</h3>
+                </button>
+            </form>
+            <div class="form__image wow fadeInDown">
+                <img src="{% static 'images/8ae4cf065e958cac5db8d2d79b54119d7d4f50d0_1200 1 (1).png' %}" alt="da">
+            </div>
+        </div>
+    </div>
+    <div class="frame wow fadeInUp">
+        <iframe width="90%"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.052926087651!2d131.9775203154621!3d43.22934997913808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5fb397caa416cca9%3A0x643a82cd7aa71a74!2z0JrQsNGE0LUgItCT0KDQkNCd0JDQoiI!5e0!3m2!1sru!2s!4v1633106512029!5m2!1sru!2s"
+                height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</div>
+<footer id="footer" class="footer">
+    <div class="footer_container wow fadeInDown">
+        <div class="footer_left">
+            <a href="https://granatvl-restaurant.ru/">
+                <h3>www.granatvl-restaurant.ru</h3>
+            </a>
+            <br>
+            <a href="mailto:granatvladivostok@gmail.com">
+                <h3>granatvladivostok@gmail.com</h3>
+            </a>
+            <br>
+            <a href="tel:+7 998 321-22-22">
+                <h3>Телефон: +7 998 321-22-22</h3>
+            </a>
+        </div>
+        <div class="footer_mid">
+            <a href="https://instagram.com/granat_vladivostok?utm_medium=copy_link">
+                <h3>Instagram</h3>
+            </a>
+            <br>
+            <a href="https://instagram.com/granat_vladivostok?utm_medium=copy_link">
+                <h3>Facebook</h3>
+            </a>
+        </div>
+        <div class="footer_right">
+            <a href="https://granatvl-restaurant.ru/">
+                <h3>GranatVladivostok inc.</h3>
+            </a>
+            <br>
+            <a href="#">
+                <h3>Все права защищены</h3>
+            </a>
+            <br>
+            <a href="#">
+                <h3>Создано командой liberty code. 2021</h3>
+            </a>
+        </div>
+    </div>
+</footer><!-- Якорь -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('a[href^="#"]:not(.top)').click(function (event) {
+            event.preventDefault();
+            var full_url = this.href;
+            var parts = full_url.split("#");
+            var trgt = parts[1];
+            var target_offset = $("#" + trgt).offset();
+            var target_top = target_offset.top;
+            $('html, body').animate({
+                scrollTop: target_top
+            }, 700);
+        });
+    });</script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
+    });</script>
+<script src="{% static 'scripts/script.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script src="wow.min.js"></script>
+<script type="text/javascript">
+    new WOW().init();</script>
+</body>
+</html>
